@@ -1,0 +1,6 @@
+{
+  "name": "Fundación ULEP",
+  "description": "Sitio web institucional, campus virtual y financiamiento educativo fintech de la Fundación Unidad Latinoamericana Empresarial de Popayán.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
