@@ -1,6 +1,7 @@
 import React from "react";
-import { BookOpen, Laptop, ShieldCheck, GraduationCap, HelpCircle, ArrowUpRight, ExternalLink, RefreshCw } from "lucide-react";
+import { BookOpen, Laptop, ShieldCheck, GraduationCap, HelpCircle, ArrowUpRight, ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
+import { VirtualCampusIllustration } from "./illustrations/VectorIllustrations";
 
 interface CampusVirtualProps {
   onContactSupport: () => void;
@@ -100,53 +101,12 @@ export default function CampusVirtual({ onContactSupport }: CampusVirtualProps) 
             </div>
           </div>
 
-          {/* Right Column: Visual Mockup / Portal Preview */}
+          {/* Right Column: Visual Illustration of Virtual Campus */}
           <div className="lg:col-span-6 relative">
-            <div className="bg-brand-navy rounded-xl p-6 shadow-xl border border-slate-800 relative overflow-hidden group">
-              {/* Simulated UI Bar */}
-              <div className="flex items-center justify-between border-b border-slate-700/60 pb-4 mb-6">
-                <div className="flex space-x-2">
-                  <span className="w-3 h-3 rounded-full bg-slate-600 block"></span>
-                  <span className="w-3 h-3 rounded-full bg-slate-600 block"></span>
-                  <span className="w-3 h-3 rounded-full bg-slate-600 block"></span>
-                </div>
-                <span className="text-[10px] text-slate-400 font-mono tracking-wider">https://ulep.milaulas.com</span>
-                <RefreshCw className="w-3 h-3 text-slate-500 animate-spin" />
-              </div>
-
-              {/* Mockup content */}
-              <div className="space-y-6 text-left py-4">
-                <div className="space-y-2">
-                  <span className="text-[9px] text-brand-gold font-bold uppercase tracking-widest bg-slate-800 border border-slate-700 px-2 py-0.5 rounded">
-                    Moodle Aula Virtual
-                  </span>
-                  <h5 className="font-bold text-white text-lg font-display">Área de Acceso Autorizado</h5>
-                  <p className="text-xs text-slate-400 font-light">Fundación Unidad Latinoamericana Empresarial de Popayán</p>
-                </div>
-
-                <div className="space-y-3.5 bg-slate-800 p-5 rounded-lg border border-slate-700">
-                  <div className="h-2 w-1/3 bg-slate-700 rounded-full"></div>
-                  <div className="h-9 w-full bg-slate-900 rounded-md border border-slate-700 flex items-center px-3.5 text-xs text-slate-500">
-                    Nombre de usuario o correo electrónico
-                  </div>
-                  <div className="h-9 w-full bg-slate-900 rounded-md border border-slate-700 flex items-center px-3.5 text-xs text-slate-500">
-                    ••••••••••••
-                  </div>
-                  <button
-                    onClick={handleOpenCampus}
-                    className="w-full py-3 rounded-lg bg-brand-gold text-brand-navy hover:bg-brand-gold-dark font-bold text-xs text-center cursor-pointer transition-all duration-300 uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Acceder a la plataforma
-                  </button>
-                </div>
-
-                <p className="text-[10px] text-slate-500 text-center font-mono">
-                  Servidor administrado bajo estándares de seguridad SSL de 256 bits.
-                </p>
-              </div>
+            <div className="bg-brand-navy rounded-xl p-6 shadow-xl border border-slate-800 relative overflow-hidden min-h-[380px] flex items-center justify-center">
+              <VirtualCampusIllustration />
             </div>
           </div>
-
         </div>
 
         {/* Step-by-step instructions */}

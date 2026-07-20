@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Program, ProgramCategory } from "../types";
 import { PROGRAMS_DATA } from "../data";
-import { Clock, MapPin, Award, BookOpen, Star, Sparkles, CheckCircle2, ChevronRight, Play, X } from "lucide-react";
+import { Clock, MapPin, Award, BookOpen, Star, Sparkles, CheckCircle2, ChevronRight, Play } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { ProgramIllustration, InstructorAvatar } from "./illustrations/VectorIllustrations";
 
 interface ProgramsProps {
   onPreInscribe: (program: Program) => void;
@@ -102,12 +103,9 @@ export default function Programs({ onPreInscribe }: ProgramsProps) {
               <div className="relative rounded-2xl overflow-hidden border border-brand-blue-light/40 aspect-video group bg-slate-100 shadow-lg">
                 {!showVideo ? (
                   <>
-                    <img
-                      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80"
-                      alt="Emprendedores ULEP"
-                      className="absolute inset-0 w-full h-full object-cover filter brightness-75 group-hover:scale-102 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
-                    />
+                    <div className="absolute inset-0 w-full h-full p-4 flex items-center justify-center bg-slate-50">
+                      <ProgramIllustration category="emprendimiento" />
+                    </div>
                     <div className="absolute inset-0 flex flex-col justify-center items-center p-4">
                       <button
                         onClick={() => setShowVideo(true)}
@@ -175,19 +173,14 @@ export default function Programs({ onPreInscribe }: ProgramsProps) {
               key={program.id}
               className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:border-slate-300"
             >
-              {/* Image with Tag Overlay */}
-              <div className="relative h-48 overflow-hidden bg-slate-100">
-                <img
-                  src={program.image}
-                  alt={program.title}
-                  className="w-full h-full object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent opacity-80" />
-                <span className="absolute top-4 left-4 bg-brand-navy border border-brand-gold text-brand-gold text-[9px] font-bold px-3 py-1.5 rounded uppercase tracking-widest shadow-sm">
+              {/* Vector Illustration representation */}
+              <div className="relative h-48 overflow-hidden bg-slate-100 p-4 flex items-center justify-center">
+                <ProgramIllustration category={program.title} />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent opacity-80 pointer-events-none" />
+                <span className="absolute top-4 left-4 bg-brand-navy border border-brand-gold text-brand-gold text-[9px] font-bold px-3 py-1.5 rounded uppercase tracking-widest shadow-sm z-10">
                   {program.category}
                 </span>
-                <span className="absolute bottom-4 right-4 bg-brand-gold text-brand-navy text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">
+                <span className="absolute bottom-4 right-4 bg-brand-gold text-brand-navy text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider z-10">
                   {program.modality}
                 </span>
               </div>
@@ -318,12 +311,7 @@ export default function Programs({ onPreInscribe }: ProgramsProps) {
                     <div>
                       <h5 className="font-bold text-brand-navy text-xs uppercase tracking-wider mb-3 font-display">Docente Titular</h5>
                       <div className="flex items-center space-x-3 mb-3">
-                        <img
-                          src={selectedProgram.instructor.image}
-                          alt={selectedProgram.instructor.name}
-                          className="w-12 h-12 rounded-full object-cover border border-slate-200"
-                          referrerPolicy="no-referrer"
-                        />
+                        <InstructorAvatar name={selectedProgram.instructor.name} />
                         <div>
                           <h6 className="font-bold text-slate-900 text-sm leading-none">{selectedProgram.instructor.name}</h6>
                           <span className="text-[11px] text-brand-navy font-bold mt-1.5 block leading-tight">{selectedProgram.instructor.role}</span>

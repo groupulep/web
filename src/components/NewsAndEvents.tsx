@@ -3,6 +3,7 @@ import { NEWS_DATA, EVENTS_DATA } from "../data";
 import { News, Event } from "../types";
 import { Calendar, Clock, MapPin, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { NewsIllustration } from "./illustrations/VectorIllustrations";
 
 interface NewsAndEventsProps {
   onRegisterEventSuccess: (eventTitle: string) => void;
@@ -43,14 +44,9 @@ export default function NewsAndEvents({ onRegisterEventSuccess }: NewsAndEventsP
               key={news.id}
               className="bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col justify-between group hover:border-slate-300 hover:shadow-lg transition-all duration-300 shadow-sm"
             >
-              <div className="relative h-48 overflow-hidden bg-slate-100">
-                <img
-                  src={news.image}
-                  alt={news.title}
-                  className="w-full h-full object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                <span className="absolute bottom-4 left-4 bg-brand-navy border border-brand-gold text-[10px] font-bold text-brand-gold px-3 py-1 rounded uppercase tracking-wider">
+              <div className="relative h-48 overflow-hidden bg-slate-100 p-4 flex items-center justify-center">
+                <NewsIllustration id={news.id} />
+                <span className="absolute bottom-4 left-4 bg-brand-navy border border-brand-gold text-[10px] font-bold text-brand-gold px-3 py-1 rounded uppercase tracking-wider z-10">
                   {news.date}
                 </span>
               </div>
@@ -176,15 +172,10 @@ export default function NewsAndEvents({ onRegisterEventSuccess }: NewsAndEventsP
               </button>
 
               {/* Cover inside modal */}
-              <div className="h-60 bg-slate-100 relative">
-                <img
-                  src={selectedNews.image}
-                  alt={selectedNews.title}
-                  className="w-full h-full object-cover filter brightness-90"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-90" />
-                <span className="absolute bottom-6 left-6 text-[10px] text-brand-gold font-bold uppercase tracking-wider bg-brand-navy px-3 py-1 rounded border border-brand-gold/50">
+              <div className="h-60 bg-slate-100 relative p-4 flex items-center justify-center">
+                <NewsIllustration id={selectedNews.id} />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-90 pointer-events-none" />
+                <span className="absolute bottom-6 left-6 text-[10px] text-brand-gold font-bold uppercase tracking-wider bg-brand-navy px-3 py-1 rounded border border-brand-gold/50 z-10">
                   {selectedNews.date}
                 </span>
               </div>

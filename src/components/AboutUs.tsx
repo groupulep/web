@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Shield, Lightbulb, Users, Target, Award, ArrowUpRight, CheckSquare } from "lucide-react";
+import { Shield, Lightbulb, Users, Target, Award, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { AboutUsIllustration } from "./illustrations/VectorIllustrations";
 
 interface AboutUsProps {
   onLearnMorePrograms: () => void;
@@ -41,7 +42,7 @@ export default function AboutUs({ onLearnMorePrograms }: AboutUsProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Image with golden offset and double frame */}
+          {/* Left Column: Vector illustration with golden offset and double frame */}
           <div className="lg:col-span-5 relative">
             <div className="relative group">
               {/* Gold frame offsets */}
@@ -49,14 +50,9 @@ export default function AboutUs({ onLearnMorePrograms }: AboutUsProps) {
               <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b-2 border-r-2 border-brand-gold pointer-events-none" />
               
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy/5 to-brand-gold/5 rounded-xl blur-sm opacity-25 group-hover:opacity-40 transition-all pointer-events-none" />
-              <div className="relative rounded-xl overflow-hidden border border-slate-200 shadow-xl bg-white p-2">
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
-                  alt="Equipo de la Fundación ULEP"
-                  className="w-full h-[360px] object-cover rounded-lg filter brightness-95 group-hover:scale-[1.02] transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute top-6 right-6 bg-white/95 border border-brand-gold/60 px-3.5 py-1.5 rounded text-[10px] text-brand-gold-dark font-bold flex items-center space-x-1.5 shadow-lg">
+              <div className="relative rounded-xl overflow-hidden border border-slate-200 shadow-xl bg-slate-50 p-4">
+                <AboutUsIllustration />
+                <div className="absolute bottom-4 right-4 bg-white/95 border border-brand-gold/60 px-3.5 py-1.5 rounded text-[10px] text-brand-gold-dark font-bold flex items-center space-x-1.5 shadow-lg">
                   <span className="h-2 w-2 rounded-full bg-brand-gold animate-pulse"></span>
                   <span className="uppercase tracking-widest">Popayán • Suroccidente</span>
                 </div>

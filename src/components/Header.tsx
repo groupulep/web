@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, BookOpen, Wallet, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -11,6 +11,19 @@ interface HeaderProps {
 
 export default function Header({ onNavClick, activeSection, onOpenCampus, onOpenFinancing }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const menuItems = [
     { id: "inicio", label: "Inicio" },
@@ -29,14 +42,27 @@ export default function Header({ onNavClick, activeSection, onOpenCampus, onOpen
   };
 
   return (
-    <header id="main-header" className="fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-md">
+    <header
+      id="main-header"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "shadow-lg bg-white/90 backdrop-blur-lg border-b border-slate-200/50"
+          : "shadow-sm bg-white/98 backdrop-blur-md border-b border-slate-100"
+      }`}
+    >
       {/* Main Header Bar */}
-      <div className="bg-white/95 backdrop-blur-md border-b border-slate-100 text-slate-800">
+      <div className="text-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div
+            className={`flex items-center justify-between transition-all duration-300 ${
+              isScrolled ? "h-16" : "h-20"
+            }`}
+          >
             {/* Logo Brand: Softer, friendlier shield and typography */}
             <div className="flex items-center space-x-3 cursor-pointer group" onClick={() => handleItemClick("inicio")}>
-              <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-brand-navy to-brand-blue border-2 border-brand-gold flex flex-col items-center justify-center shadow-md shadow-brand-blue/15 relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <div className={`rounded-2xl bg-gradient-to-br from-brand-navy to-brand-blue border-2 border-brand-gold flex flex-col items-center justify-center shadow-md shadow-brand-blue/15 relative overflow-hidden transition-all duration-300 ${
+                isScrolled ? "h-10 w-10 group-hover:scale-105" : "h-12 w-12 group-hover:scale-105"
+              }`}>
                 {/* Diagonal shield shimmer */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold/10 to-transparent pointer-events-none" />
                 <span className="font-black text-xl text-white tracking-widest font-display leading-none text-shadow-sm">U</span>

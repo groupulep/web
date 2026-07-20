@@ -3,6 +3,7 @@ import { Wallet, CheckSquare, Clock, FileText, ChevronRight, CheckCircle2, Shiel
 import { Program } from "../types";
 import { PROGRAMS_DATA } from "../data";
 import { motion, AnimatePresence } from "motion/react";
+import { FinancingIllustration } from "./illustrations/VectorIllustrations";
 
 interface FinancingProps {
   onPreInscribeWithProgram?: (program: Program) => void;
@@ -232,6 +233,11 @@ Agradezco su atención y quedo atento a la validación de mi matrícula digital.
             <p className="text-xs text-slate-600 font-light">
               Elige el programa de tu interés para conocer el valor total y simular tu amortización.
             </p>
+
+            {/* Custom vector illustration of financing */}
+            <div className="bg-white rounded-xl p-4 border border-slate-200 flex justify-center items-center h-44 shadow-inner">
+              <FinancingIllustration />
+            </div>
 
             <div className="space-y-4">
               <div>

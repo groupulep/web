@@ -1,6 +1,7 @@
 import React from "react";
 import { TESTIMONIALS_DATA } from "../data";
 import { Star, Quote, Sparkles } from "lucide-react";
+import { StudentAvatar } from "./illustrations/VectorIllustrations";
 
 export default function Testimonials() {
   return (
@@ -50,12 +51,7 @@ export default function Testimonials() {
 
               {/* Student Profile row */}
               <div className="flex items-center space-x-4 pt-4 border-t border-slate-100 relative z-10">
-                <img
-                  src={test.image}
-                  alt={test.name}
-                  className="w-11 h-11 rounded-lg object-cover border border-slate-200"
-                  referrerPolicy="no-referrer"
-                />
+                <StudentAvatar name={test.name} />
                 <div className="overflow-hidden">
                   <h5 className="font-bold text-brand-navy text-xs sm:text-sm leading-none truncate font-display">
                     {test.name}

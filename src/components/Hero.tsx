@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ArrowRight, Sparkles, GraduationCap, Users, Shield, MapPin, Award, CheckCircle } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { HeroIllustration } from "./illustrations/VectorIllustrations";
 
 interface HeroProps {
   onLearnMore: () => void;
@@ -149,15 +150,12 @@ export default function Hero({ onLearnMore, onApplyNow }: HeroProps) {
 
               {/* Main premium image container */}
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-white p-2">
-                <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
-                  alt="Estudiantes en aula ULEP"
-                  className="w-full h-[320px] md:h-[380px] object-cover rounded-xl filter brightness-95 saturate-[1.1]"
-                  referrerPolicy="no-referrer"
-                />
+                <div className="w-full h-[320px] md:h-[380px] rounded-xl overflow-hidden relative bg-slate-50 flex items-center justify-center p-4">
+                  <HeroIllustration />
+                </div>
 
                 {/* Overlapping Floating Badge: LMS Portal */}
-                <div className="absolute top-6 right-6 bg-white/95 border border-slate-200 p-3 rounded-xl flex items-center space-x-2 shadow-lg backdrop-blur-sm transform hover:scale-105 transition-transform">
+                <div className="absolute top-6 right-6 bg-white/95 border border-slate-200 p-3 rounded-xl flex items-center space-x-2 shadow-lg backdrop-blur-sm transform hover:scale-105 transition-transform z-10">
                   <div className="h-8 w-8 rounded bg-brand-navy flex items-center justify-center text-white">
                     <GraduationCap className="w-5 h-5" />
                   </div>
@@ -168,7 +166,7 @@ export default function Hero({ onLearnMore, onApplyNow }: HeroProps) {
                 </div>
 
                 {/* Overlapping Floating Badge: Location */}
-                <div className="absolute -bottom-4 -left-4 bg-white/95 border border-slate-200 p-3 rounded-xl flex items-center space-x-3 shadow-xl text-left max-w-[210px] transform hover:scale-105 transition-transform">
+                <div className="absolute -bottom-4 -left-4 bg-white/95 border border-slate-200 p-3 rounded-xl flex items-center space-x-3 shadow-xl text-left max-w-[210px] transform hover:scale-105 transition-transform z-10">
                   <div className="h-9 w-9 rounded bg-brand-gold/10 text-brand-gold flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
